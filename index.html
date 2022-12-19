@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Dischi</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Lista Albums</h1>
+      <h3>Seleziona un genere</h3>
+      <select @change="onSelectChange" v-model="genre">
+        <option value="">Tutti i generi</option>
+        <option value="rock">Rock</option>
+        <option value="pop">Pop</option>
+        <option value="metal">Metal</option>
+        <option value="jazz">Jazz</option>
+      </select>
+      <ul>
+        <li v-for="album in albums">
+          <h4>{{album.title}}</h4>
+          <img :src="album.poster" :alt="album.title" width="150" />
+          <div>{{album.author}}</div>
+          <div><strong>{{album.genre}}</strong></div>
+          <div>{{album.year}}</div>
+        </li>
+      </ul>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>
